@@ -11,24 +11,27 @@ import Step9 from "./steps/Step9.md";
 import Step10 from "./steps/Step10.md";
 import Step11 from "./steps/Step11.md";
 import Step12 from "./steps/Step12.md";
-// import Exercise1 from "./steps/Exercise1.md";
-// import Exercise2 from "./steps/Exercise2.md";
-// import Exercise3 from "./steps/Exercise3.md";
-// import Exercise4 from "./steps/Exercise4.md";
-// import Exercise5 from "./steps/Exercise5.md";
-// import Exercise6 from "./steps/Exercise6.md";
-// import Exercise7 from "./steps/Exercise7.md";
-// import Exercise8 from "./steps/Exercise8.md";
+import Exercise1 from "./exercises/Exercise1.md";
+import Exercise2 from "./exercises/Exercise2.md";
+import Exercise3 from "./exercises/Exercise3.md";
+import Exercise4 from "./exercises/Exercise4.md";
+import Exercise5 from "./exercises/Exercise5.md";
+import Exercise6 from "./exercises/Exercise6.md";
+import Exercise7 from "./exercises/Exercise7.md";
+import Exercise8 from "./exercises/Exercise8.md";
 import Conclusion from "./steps/Conclusion.md";
 
 export const config = {
 	id: "fqgrep-intro",
 	name: "Pattern searching in FASTQ files with fqgrep",
+	icon: "search",
+	date: "July 2026",
 	subtitle: `by <a href="https://github.com/nh13" target="_blank">Nils Homer</a>`,
-	description: "Learn to search for sequence patterns in FASTQ files using fqgrep, a fast grep alternative designed for sequencing data.",
+	description:
+		"Learn to search for sequence patterns in FASTQ files using fqgrep, a fast grep alternative designed for sequencing data.",
 	tags: ["FASTQ", "grep", "pattern matching", "paired-end", "QC"],
 	tools: ["fqgrep"],
-	difficulty: ["beginner", "intermediate"],
+	difficulty: ["beginner"],
 	steps: [
 		{ name: "Introduction", component: Step1 },
 		{ name: "Basic Pattern Matching", component: Step2 },
@@ -41,16 +44,25 @@ export const config = {
 		{ name: "IUPAC Ambiguity Codes", component: Step9 },
 		{ name: "Read Name Filtering", component: Step10 },
 		{ name: "Protein Sequences", component: Step11 },
-		{ name: "Performance", component: Step12 }
-		// { name: "Adapter Check", component: Exercise1 },
-		// { name: "Tn5 Detection", component: Exercise2 },
-		// { name: "Degenerate Barcodes", component: Exercise3 },
-		// { name: "Paired-End Screening", component: Exercise4 },
-		// { name: "Extract Reads by Name", component: Exercise5 },
-		// { name: "Protein Motif Search", component: Exercise6 },
-		// { name: "IUPAC Search", component: Exercise7 },
-		// { name: "Thorough Contaminant Screen", component: Exercise8 },
-		{ name: "Conclusion", component: Conclusion },
+		{ name: "Performance", component: Step12 },
+		{ name: "Exercises", subtitle: "Adapter Contamination Check", header: true, component: Exercise1 },
+		{ name: "Exercises", subtitle: "Tn5 Mosaic End Detection", component: Exercise2 },
+		{ name: "Exercises", subtitle: "Degenerate Barcode Pattern", component: Exercise3 },
+		{ name: "Exercises", subtitle: "Paired-End Adapter Screening", component: Exercise4 },
+		{ name: "Exercises", subtitle: "Extract Reads by Name", component: Exercise5 },
+		{ name: "Exercises", subtitle: "Protein Motif Search", component: Exercise6 },
+		{ name: "Exercises", subtitle: "IUPAC Degenerate Search", component: Exercise7 },
+		{ name: "Exercises", subtitle: "Thorough Contaminant Screen", component: Exercise8 },
+		{ name: "The End", header: true, component: Conclusion }
 	],
-	files: ["reads.fastq", "reads_R1.fastq", "reads_R2.fastq", "adapters.txt", "barcodes.txt", "contaminants.txt", "read_names.txt", "proteins.fastq"]
+	files: [
+		"reads.fastq",
+		"reads_R1.fastq",
+		"reads_R2.fastq",
+		"adapters.txt",
+		"barcodes.txt",
+		"contaminants.txt",
+		"read_names.txt",
+		"proteins.fastq"
+	]
 };
