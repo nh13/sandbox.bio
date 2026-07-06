@@ -28,7 +28,11 @@ Consider the pattern `GACG.GATTA`. In regex mode, the `.` matches **any** charac
 
 <Execute command={`fqgrep -c 'GACG.GATTA' reads.fastq`} />
 
-With `-F`, fqgrep validates that fixed-string patterns contain only valid DNA bases — so non-DNA characters like `.` are rejected:
+With `-F`, fqgrep treats the pattern literally and validates that it contains only valid DNA bases (`A`, `C`, `G`, `T`, `N`). A non-DNA character like `.` is therefore rejected with an error:
+
+<Execute command={`fqgrep -F -c 'GACG.GATTA' reads.fastq`} />
+
+To match a sequence exactly, drop the metacharacter:
 
 <Execute command={`fqgrep -F -c 'GACGAGATTA' reads.fastq`} />
 
