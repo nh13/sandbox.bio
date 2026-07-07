@@ -20,7 +20,7 @@ fqgrep is written in Rust and uses:
 - **Multi-threaded searching** — parallel pattern matching across reads
 - **Efficient regex engine** — optimized Aho-Corasick for fixed strings, fast DFA for regex
 
-In [benchmarks](https://github.com/Rbfinch/grepq) searching 30 patterns across an 874MB FASTQ, fqgrep finished in **0.34 seconds** vs. grep's **344 seconds** — roughly 1000x faster.
+In an [independent benchmark](https://github.com/Rbfinch/grepq) searching 30 patterns across an 874 MB FASTQ, fqgrep finished in **0.34 seconds** versus **344 seconds** for `grep` — roughly 1000x faster. (That benchmark is published by the authors of `grepq`, a related FASTQ-filtering tool, and compares several tools head-to-head, so treat the exact figures as ballpark. The takeaway holds: a FASTQ-aware, Rust-based tool turns a multi-minute `grep` into a sub-second search.)
 
 ## Threads
 
@@ -48,7 +48,7 @@ fqgrep --no-order 'AGATCGGAAGAGC' reads.fastq
 
 ## Compression support
 
-fqgrep automatically handles gzip-compressed files based on the `.gz` extension:
+fqgrep automatically handles gzip-compressed files based on the file extension (`.gz` or `.bgz`):
 
 ```bash
 fqgrep 'AGATCGGAAGAGC' reads.fastq.gz

@@ -59,7 +59,6 @@ export const config = {
 		"reads.fastq",
 		"reads_R1.fastq",
 		"reads_R2.fastq",
-		"adapters.txt",
 		"barcodes.txt",
 		"contaminants.txt",
 		"read_names.txt",

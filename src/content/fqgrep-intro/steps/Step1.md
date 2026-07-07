@@ -15,14 +15,14 @@ FASTQ files have a specific 4-line structure for each read:
 3. Plus line (`+`)
 4. Quality line
 
-When you use `grep` to find a sequence pattern, you only get the matching line — not the complete FASTQ record. Worse, using `grep -B1 -A2` to grab surrounding lines is extremely slow and error-prone.
+When you use `grep` to find a sequence pattern, you only get the matching line — not the complete FASTQ record. You can try to reconstruct the record with `grep -B1 -A2`, but that's fragile: it breaks when the pattern also appears in a header or quality line, and it can silently emit malformed records.
 
 ## fqgrep advantages
 
 **fqgrep** solves these problems:
 
 - **FASTQ-aware**: Always outputs complete, valid FASTQ records
-- **Blazing fast**: Up to ~1000x faster than `grep` ([benchmarks](https://github.com/Rbfinch/grepq))
+- **Blazing fast**: written in Rust with multi-threaded, FASTQ-aware matching — dramatically faster than `grep` on large files (see the **Performance** step for numbers)
 - **Paired-end support**: Keeps read pairs together when one mate matches
 - **grep-compatible**: Familiar options like `-e`, `-f`, `-v`, `-c`, `-F`
 

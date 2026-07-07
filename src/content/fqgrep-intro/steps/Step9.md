@@ -2,7 +2,7 @@
 import Execute from "$components/Execute.svelte";
 </script>
 
-In the previous step, we manually translated IUPAC codes like `N` into regex character classes like `[ACGT]`. fqgrep's `--iupac` flag automates this — it requires `-F` (fixed-string mode) and converts IUPAC codes in your pattern before matching.
+In the previous step, we manually translated IUPAC codes like `N` into regex character classes like `[ACGT]`. fqgrep's `--iupac` flag automates this by converting IUPAC codes in your pattern before matching. It only takes effect in fixed-string mode, so it must be combined with `-F` — without `-F`, the flag is ignored (fqgrep prints a warning) and the codes are matched literally.
 
 ## The --iupac flag
 

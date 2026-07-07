@@ -1,5 +1,4 @@
 <script>
-import Execute from "$components/Execute.svelte";
 import Exercise from "$components/Exercise.svelte";
 
 const criteria = [{
